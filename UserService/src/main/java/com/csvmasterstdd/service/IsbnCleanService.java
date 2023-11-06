@@ -8,7 +8,9 @@ public class IsbnCleanService {
     }
 
     public boolean isEqualTen(Isbn isbn) {
-
+        if (isbn.getIsbnNumber().length() != 10){
+            return false;
+        }
         return true;
     }
 }
