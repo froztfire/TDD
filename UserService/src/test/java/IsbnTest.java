@@ -1,3 +1,4 @@
+import com.csvmasterstdd.service.Isbn;
 import com.csvmasterstdd.service.IsbnCleanService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ public class IsbnTest {
     void isbnCleanService_WhenInputIsbn10_shouldRemovedAllHyphen(){
         //Arrange
         IsbnCleanService isbnCleanService = new IsbnCleanService();
-        String isbnWithHyphen = "0-9320-2342-4";
+        Isbn isbnWithHyphen =  Isbn.of("0-9320-2342-4");
         String isbnExpected = "0932023424";
 
         //Act
@@ -26,11 +27,11 @@ public class IsbnTest {
     void isbnCleanService_WhenInputIsbn10_shouldRemovedAllSpaces(){
         //Arrange
         IsbnCleanService isbnCleanService = new IsbnCleanService();
-        String isbnWithHyphen = "0 9320 2342 4";
+        Isbn isbnWithSpace =  Isbn.of("0-9320-2342-4");
         String isbnExpected = "0932023424";
 
         //Act
-        String isbnCleanedActual = isbnCleanService.isbnClean(isbnWithHyphen);
+        String isbnCleanedActual = isbnCleanService.isbnClean(isbnWithSpace);
 
         //Assert
         assertEquals(isbnExpected,isbnCleanedActual,"Reformatting of Input ISBN is not proper.!");

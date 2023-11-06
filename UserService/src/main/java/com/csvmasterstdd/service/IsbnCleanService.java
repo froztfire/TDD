@@ -2,8 +2,10 @@ package com.csvmasterstdd.service;
 
 public class IsbnCleanService {
 
-    public String isbnClean(String str){
-        String cleanedIsbn = str.replaceAll("[\\s-]", "");
+
+
+    public String isbnClean(Isbn isbn){
+        String cleanedIsbn = isbn.getIsbnNumber().replaceAll("[\\s-]", "");
         return cleanedIsbn;
     }
 }
